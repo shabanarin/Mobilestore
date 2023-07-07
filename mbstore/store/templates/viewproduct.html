@@ -1,0 +1,22 @@
+{% extends 'storehome.html' %}
+{%block store%}
+  <h3 class="bg-info">VIEW PRODUCTS</h3>
+  <div class="card-columns">
+  {%for i in data%}
+    <div class="card" style="width:300px">
+      {%if i.productpic%}
+      <img class="card-img-top" src="{{i.productpic.url}}" alt="Card image" height="400px",width="5px">
+      {%endif%}
+      <div class="card-body">
+        <h4 class="card-title">{{i.productname}}</h4>
+        <p class="card-text">Model:{{i.productmodel}}</p>
+        <p class="card-text">Description:{{i.description}}</p>
+        <p class="card-text">Color:{{i.color}}</p>
+        <p class="card-text">Price:{{i.price}}</p>
+        <p class="card-text">Quantity:{{i.quantity}}</p>
+        <a href="{%url 'dltpro' i.id%}" class="btn btn-primary">Delete</a>
+        <a href="{%url 'edtprod' i.id%}" class="btn btn-primary">Update</a>
+      </div>
+    </div>
+  {%endfor%}
+{%endblock store%}
